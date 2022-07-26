@@ -1,23 +1,13 @@
 import logo from "./logo.svg";
 import "./App.css";
-
+import baseUrl from "./config/index";
+import axios from "axios";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>My 1st project on heroku</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  axios.get(`${baseUrl}/api/v1/books`).then((books) => {
+    console.log(books);
+  });
+
+  return <div className="App"></div>;
 }
 
 export default App;
